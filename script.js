@@ -1,12 +1,9 @@
-/* =========================================================
-   IRON FORGE — MAIN JS
-   ========================================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
   initNavToggle();
   initDotField();
   initBounceCards();
   initContactForm();
+  initSideDock();
 });
 
 /* =========================================================
@@ -371,5 +368,26 @@ function initContactForm() {
     // TODO: hook up to backend / email service
     alert('Thanks! Your message has been sent. We will get back to you soon.');
     form.reset();
+  });
+}
+
+/* =========================================================
+   SIDE DOCK (Calculator / Muscle / Goal / Quote)
+   No functionality yet — just wiring up click listeners
+   as placeholders for future features.
+   ========================================================= */
+function initSideDock() {
+  const docks = document.querySelectorAll('.side-dock');
+  if (!docks.length) return;
+
+  docks.forEach(dock => {
+    const buttons = dock.querySelectorAll('.dock-item button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const label = btn.getAttribute('aria-label');
+        console.log(`Side dock clicked: ${label}`);
+        // TODO: hook up real functionality per icon
+      });
+    });
   });
 }
